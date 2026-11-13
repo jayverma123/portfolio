@@ -1,0 +1,13 @@
+{
+  "name": "jay-verma-portfolio",
+  "version": "1.0.0",
+  "description": "Personal Portfolio of Jay Verma — Web Development Intern & Software Developer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 3000",
+    "start": "npx serve -l 3000"
+  },
+  "keywords": ["portfolio", "jay-verma", "web-developer", "frontend"],
+  "author": "Jay Verma",
+  "license": "MIT"
+}

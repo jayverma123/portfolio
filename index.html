@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jay Verma — Web Development Intern & Software Developer</title>
+  <meta name="description" content="Portfolio of Jay Verma, B.Tech CSE student (2nd Year, Class of 2029) at Jaipur National University. Seeking Web Development & Software Internships.">
+  <meta name="author" content="Jay Verma">
+  
+  <!-- Typography: Pure Google Fonts (Inter for body/headings, JetBrains Mono for metadata) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            canvas: '#FFFFFF',
+            paper: '#FAFAFA',
+            subtle: '#F4F4F5',
+            divider: '#E4E4E7',
+            ink: {
+              900: '#18181B',
+              700: '#3F3F46',
+              500: '#71717A',
+              400: '#A1A1AA',
+              300: '#D4D4D8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    code, kbd, samp, pre, .font-mono {
+      font-family: 'JetBrains Mono', monospace !important;
+    }
+    body {
+      background-color: #FFFFFF;
+      color: #3F3F46;
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+      background-color: #18181B;
+      color: #FFFFFF;
+    }
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.625rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: #F4F4F5;
+      color: #27272A;
+      border: 1px solid #E4E4E7;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .badge-tag:hover {
+      background: #E4E4E7;
+      border-color: #D4D4D8;
+    }
+    .nav-anchor {
+      font-size: 0.875rem;
+      font-weight: 450;
+      color: #71717A;
+      transition: color 0.15s ease;
+    }
+    .nav-anchor:hover {
+      color: #18181B;
+    }
+    /* Subtle editorial hover - No AI glow or bouncy transforms */
+    .editorial-row {
+      transition: background-color 0.15s ease;
+    }
+    .editorial-row:hover {
+      background-color: #FAFAFA;
+    }
+  </style>
+</head>
+<body class="selection:bg-zinc-900 selection:text-white text-ink-700 bg-white min-h-screen">
+
+  <!-- TOP MINIMAL NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-divider">
+    <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="#home" class="font-semibold text-sm tracking-tight text-ink-900 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
+        <span>Jay Verma</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#about" class="nav-anchor">About</a>
+        <a href="#skills" class="nav-anchor">Skills</a>
+        <a href="#projects" class="nav-anchor">Projects</a>
+        <a href="#experience" class="nav-anchor">Experience</a>
+        <a href="#contact" class="nav-anchor">Contact</a>
+        <a href="#resumeModal" onclick="openResumeModal(event)" class="ml-2 px-3 py-1 text-xs font-medium rounded-md bg-zinc-900 text-white hover:bg-zinc-800 transition-colors">
+          Resume
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="md:hidden text-zinc-600 hover:text-zinc-950 p-1">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-divider bg-white px-6 py-4 space-y-3">
+      <a href="#about" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">About</a>
+      <a href="#skills" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">Skills</a>
+      <a href="#projects" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">Projects</a>
+      <a href="#experience" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">Experience</a>
+      <a href="#contact" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">Contact</a>
+      <button onclick="openResumeModal(event); closeMobileMenu();" class="w-full text-left pt-2 border-t border-zinc-100 text-sm font-medium text-zinc-900">
+        View Resume →
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 pt-16 pb-28">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="pb-16 pt-2">
+      <div class="flex items-center gap-2 mb-4 text-xs font-mono text-ink-500 uppercase tracking-wider">
+        <span>Bassi, Jaipur, Rajasthan</span>
+        <span>•</span>
+        <span class="text-emerald-700 font-sans font-medium capitalize bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Open to Internships</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-ink-900 leading-tight mb-5">
+        Building Digital Experiences Through Code.
+      </h1>
+
+      <p class="text-base sm:text-lg text-ink-700 leading-relaxed max-w-2xl font-normal mb-8">
+        I am Jay Verma, a 2nd-year Computer Science & Engineering student at Jaipur National University. I build functional web applications and explore software solutions driven by real-world problem-solving.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-3 text-sm">
+        <a href="#projects" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-md bg-zinc-900 text-white font-medium hover:bg-zinc-800 transition-colors">
+          <span>View Projects</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+
+        <a href="#resumeModal" onclick="openResumeModal(event)" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-md border border-divider bg-white text-zinc-800 font-medium hover:bg-zinc-50 transition-colors">
+          <svg class="w-3.5 h-3.5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span>Resume</span>
+        </a>
+
+        <a href="https://github.com/jayverma123" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 text-zinc-600 hover:text-zinc-950 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <span>github/jayverma123</span>
+          <span class="text-xs text-zinc-400">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <hr class="border-divider my-0">
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-14">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        <div>
+          <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">About</h2>
+          <p class="text-base font-semibold text-ink-900 mt-1">Background & Education</p>
+        </div>
+
+        <div class="md:col-span-2 space-y-5 text-sm sm:text-base leading-relaxed text-ink-700">
+          <p>
+            I am a Computer Science and Engineering student at Jaipur National University with hands-on experience building web projects and AI-enabled applications. Interested in web development, practical problem-solving, and exploring AI and IoT solutions. Seeking an internship to contribute to real-world software projects and continue developing technical skills.
+          </p>
+
+          <div class="border border-divider rounded-lg p-4 bg-paper">
+            <div class="flex items-start justify-between flex-wrap gap-2 text-sm">
+              <div>
+                <p class="font-semibold text-ink-900">B.Tech in Computer Science and Engineering</p>
+                <p class="text-ink-500 text-xs sm:text-sm">Jaipur National University • Second Year</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-mono text-ink-400 block">Graduation</span>
+                <span class="font-medium text-ink-900 text-xs sm:text-sm">Expected 2029</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-divider my-0">
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-14">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        <div>
+          <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">Skills</h2>
+          <p class="text-base font-semibold text-ink-900 mt-1">Technical Stack</p>
+          <p class="text-xs text-ink-500 mt-1">Foundations and core competencies verified from academic and project practice.</p>
+        </div>
+
+        <div class="md:col-span-2 space-y-6">
+          <!-- Programming -->
+          <div>
+            <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-2">Programming</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="badge-tag">C</span>
+              <span class="badge-tag">C++</span>
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div>
+            <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-2">Frontend Development</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="badge-tag">HTML</span>
+              <span class="badge-tag">CSS</span>
+              <span class="badge-tag">JavaScript</span>
+              <span class="badge-tag">React.js</span>
+              <span class="badge-tag">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <!-- Core Concepts -->
+          <div>
+            <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-2">Core Computer Science</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="badge-tag">Object-Oriented Programming (OOP)</span>
+              <span class="badge-tag">Data Structures and Algorithms (DSA)</span>
+            </div>
+          </div>
+
+          <!-- Certification & Strengths -->
+          <div class="pt-4 border-t border-divider grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-1.5">Certification</p>
+              <p class="text-sm font-medium text-ink-900 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                C Programming Certification
+              </p>
+            </div>
+
+            <div>
+              <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-1.5">Strengths</p>
+              <p class="text-xs text-ink-700 leading-normal">
+                Problem-solving, Teamwork, Leadership, Quick learner, Communication, Research & innovation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-divider my-0">
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-14">
+      <div class="mb-8">
+        <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">Selected Works</h2>
+        <p class="text-base font-semibold text-ink-900 mt-1">Projects</p>
+      </div>
+
+      <div class="divide-y divide-divider border-y border-divider">
+
+        <!-- PROJECT 1: QuantumVision -->
+        <article class="py-8 editorial-row -mx-4 px-4 rounded-md transition-colors">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
+            <h3 class="text-lg font-semibold text-ink-900 flex items-center gap-2">
+              <span>QuantumVision</span>
+              <span class="text-xs font-mono font-normal text-ink-400">/ 2026</span>
+            </h3>
+            <a href="https://github.com/jayverma123/Quantum-Vision" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-zinc-600 hover:text-black inline-flex items-center gap-1">
+              <span>github.com/jayverma123/Quantum-Vision</span>
+              <span>↗</span>
+            </a>
+          </div>
+          <p class="text-sm text-ink-700 leading-relaxed mb-4 max-w-3xl">
+            Satellite imagery platform focused on semantic retrieval and multi-temporal change analysis. Designed to compare before-and-after TIFF imagery and help users review detected changes.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="badge-tag">Satellite Data</span>
+            <span class="badge-tag">TIFF Processing</span>
+            <span class="badge-tag">Semantic Retrieval</span>
+            <span class="badge-tag">Multi-temporal Change Analysis</span>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: EduGap AI -->
+        <article class="py-8 editorial-row -mx-4 px-4 rounded-md transition-colors">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
+            <h3 class="text-lg font-semibold text-ink-900 flex items-center gap-2">
+              <span>EduGap AI</span>
+              <span class="text-xs font-mono font-normal text-ink-400">/ 2026</span>
+            </h3>
+            <a href="https://github.com/jayverma123/EDU-GAP-AI" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-zinc-600 hover:text-black inline-flex items-center gap-1">
+              <span>github.com/jayverma123/EDU-GAP-AI</span>
+              <span>↗</span>
+            </a>
+          </div>
+          <p class="text-sm text-ink-700 leading-relaxed mb-4 max-w-3xl">
+            AI-focused education project designed to support personalized learning and help identify learning gaps.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="badge-tag">Personalized Learning</span>
+            <span class="badge-tag">Diagnostic Analytics</span>
+            <span class="badge-tag">AI Application</span>
+          </div>
+        </article>
+
+        <!-- PROJECT 3: Saksham with Kisan AI -->
+        <article class="py-8 editorial-row -mx-4 px-4 rounded-md transition-colors">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
+            <h3 class="text-lg font-semibold text-ink-900 flex items-center gap-2">
+              <span>Saksham with Kisan AI</span>
+              <span class="text-xs font-mono font-normal text-ink-400">/ Hardware + Web</span>
+            </h3>
+            <span class="text-xs font-mono text-ink-400">IoT Solution</span>
+          </div>
+          <p class="text-sm text-ink-700 leading-relaxed mb-4 max-w-3xl">
+            Portable, affordable soil-testing prototype measuring moisture, temperature, NPK, and pH. Connected AI-enabled web software displays readings and provides soil-based crop, fertilizer, and farming guidance.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="badge-tag">IoT Sensors</span>
+            <span class="badge-tag">Soil NPK & pH</span>
+            <span class="badge-tag">AI Web Software</span>
+            <span class="badge-tag">AgriTech</span>
+          </div>
+        </article>
+
+        <!-- PROJECT 4: Portfolio Website -->
+        <article class="py-8 editorial-row -mx-4 px-4 rounded-md transition-colors">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
+            <h3 class="text-lg font-semibold text-ink-900 flex items-center gap-2">
+              <span>Portfolio Website</span>
+              <span class="text-xs font-mono font-normal text-ink-400">/ Frontend</span>
+            </h3>
+            <a href="#home" class="text-xs font-mono text-zinc-600 hover:text-black inline-flex items-center gap-1">
+              <span>Current Site</span>
+            </a>
+          </div>
+          <p class="text-sm text-ink-700 leading-relaxed mb-4 max-w-3xl">
+            Personal web portfolio built to present development work, projects, and technical skills. Built with semantic HTML, Tailwind CSS, clean typographical scale, and mobile-responsive layouts.
+          </p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="badge-tag">HTML5</span>
+            <span class="badge-tag">Tailwind CSS</span>
+            <span class="badge-tag">JavaScript</span>
+            <span class="badge-tag">Responsive UI</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <hr class="border-divider my-0">
+
+    <!-- EXPERIENCE & PARTICIPATION SECTION -->
+    <section id="experience" class="py-14">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        <div>
+          <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">Activities</h2>
+          <p class="text-base font-semibold text-ink-900 mt-1">Achievements & Participation</p>
+          <p class="text-xs text-ink-500 mt-1">Honest engagement in hackathons, sprints, and innovation programs.</p>
+        </div>
+
+        <div class="md:col-span-2 space-y-6">
+          <div class="border-b border-divider pb-5">
+            <div class="flex items-center justify-between text-xs font-mono text-ink-400 mb-1">
+              <span>Innovation Challenge</span>
+              <span>2026</span>
+            </div>
+            <h3 class="text-base font-semibold text-ink-900">Seva First Innovation Challenge 2026</h3>
+            <p class="text-sm text-ink-700 mt-1 leading-relaxed">
+              Participated with solution proposals addressing civic challenges and public utility through practical tech implementation.
+            </p>
+          </div>
+
+          <div class="border-b border-divider pb-5">
+            <div class="flex items-center justify-between text-xs font-mono text-ink-400 mb-1">
+              <span>Incubator Sprint</span>
+              <span>College Activity</span>
+            </div>
+            <h3 class="text-base font-semibold text-ink-900">College Startup Sprint</h3>
+            <p class="text-sm text-ink-700 mt-1 leading-relaxed">
+              Engaged in hands-on prototyping, product validation, and fast-paced iterations during an organized campus startup sprint.
+            </p>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-ink-400 mb-1">
+              <span>Competitive Hackathon</span>
+              <span>8 Hours</span>
+            </div>
+            <h3 class="text-base font-semibold text-ink-900">8-Hour College Hackathon</h3>
+            <p class="text-sm text-ink-700 mt-1 leading-relaxed">
+              Collaborated under timed constraints to develop a working software solution and pitch functional code to evaluators.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-divider my-0">
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-14">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        <div>
+          <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">Contact</h2>
+          <p class="text-base font-semibold text-ink-900 mt-1">Get in Touch</p>
+          <p class="text-xs text-ink-500 mt-1">Available for internships, project work, and collaboration.</p>
+        </div>
+
+        <div class="md:col-span-2 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+            <!-- Email -->
+            <a href="mailto:jaybassi2007@gmail.com" class="border border-divider p-4 rounded-lg hover:border-ink-900 hover:bg-paper transition-all group block">
+              <span class="text-xs font-mono text-ink-400 block mb-1">EMAIL</span>
+              <span class="font-medium text-ink-900 group-hover:underline">jaybassi2007@gmail.com</span>
+            </a>
+
+            <!-- Phone -->
+            <a href="tel:+919351902361" class="border border-divider p-4 rounded-lg hover:border-ink-900 hover:bg-paper transition-all group block">
+              <span class="text-xs font-mono text-ink-400 block mb-1">PHONE</span>
+              <span class="font-medium text-ink-900 group-hover:underline">+91 9351902361</span>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/jayverma123" target="_blank" rel="noopener noreferrer" class="border border-divider p-4 rounded-lg hover:border-ink-900 hover:bg-paper transition-all group block">
+              <span class="text-xs font-mono text-ink-400 block mb-1">GITHUB</span>
+              <span class="font-medium text-ink-900 group-hover:underline">github.com/jayverma123 ↗</span>
+            </a>
+
+            <!-- Location -->
+            <div class="border border-divider p-4 rounded-lg bg-paper">
+              <span class="text-xs font-mono text-ink-400 block mb-1">LOCATION</span>
+              <span class="font-medium text-ink-900">Bassi, Jaipur, Rajasthan</span>
+            </div>
+          </div>
+
+          <div class="pt-3">
+            <a href="mailto:jaybassi2007@gmail.com?subject=Web%20Development%20Internship%20Inquiry%20-%20Jay%20Verma" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-900 text-white text-xs font-medium hover:bg-zinc-800 transition-colors">
+              <span>Send Direct Message</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MINIMAL FOOTER -->
+  <footer class="border-t border-divider py-8 bg-paper">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-500">
+      <p>© 2026 Jay Verma — B.Tech CSE, Jaipur National University</p>
+      <div class="flex items-center gap-5">
+        <a href="#home" class="hover:text-ink-900 transition-colors">Top ↑</a>
+        <a href="https://github.com/jayverma123" target="_blank" rel="noopener noreferrer" class="hover:text-ink-900 transition-colors">GitHub</a>
+        <a href="mailto:jaybassi2007@gmail.com" class="hover:text-ink-900 transition-colors">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MINIMAL RESUME MODAL -->
+  <div id="resumeModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-[2px] flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-2xl w-full p-6 sm:p-8 shadow-xl border border-divider max-h-[92vh] overflow-y-auto">
+      <div class="flex items-start justify-between pb-4 border-b border-divider">
+        <div>
+          <h3 class="text-xl font-semibold text-ink-900">JAY VERMA</h3>
+          <p class="text-xs text-ink-500 mt-0.5">Bassi, Jaipur, Rajasthan • +91 9351902361 • jaybassi2007@gmail.com</p>
+          <p class="text-xs text-ink-500">github.com/jayverma123</p>
+        </div>
+        <div class="text-right">
+          <span class="text-xs font-mono font-medium text-ink-500 block">Web Development Intern</span>
+          <button onclick="closeResumeModal()" class="text-xs text-ink-400 hover:text-ink-900 mt-2">
+            Close ✕
+          </button>
+        </div>
+      </div>
+
+      <div class="py-5 space-y-5 text-xs text-ink-700 leading-normal">
+        <div>
+          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">ABOUT ME</p>
+          <p class="text-ink-700">Computer Science and Engineering student at Jaipur National University with hands-on experience building web projects and AI-enabled applications. Interested in web development, practical problem-solving, and exploring AI and IoT solutions. Seeking an internship to contribute to real-world software projects and continue developing technical skills.</p>
+        </div>
+
+        <div>
+          <p class="font-mono uppercase font-semibold text-ink-400 mb-1.5">PROJECTS</p>
+          <div class="space-y-2">
+            <div>
+              <span class="font-semibold text-ink-900">QuantumVision:</span>
+              <span>Satellite imagery platform focused on semantic retrieval and multi-temporal change analysis. Designed to compare before-and-after TIFF imagery and help users review detected changes.</span>
+            </div>
+            <div>
+              <span class="font-semibold text-ink-900">EduGap AI:</span>
+              <span>AI-focused education project designed to support personalized learning and help identify learning gaps.</span>
+            </div>
+            <div>
+              <span class="font-semibold text-ink-900">Portfolio Website:</span>
+              <span>Personal web portfolio built to present development work, projects, and technical skills.</span>
+            </div>
+            <div>
+              <span class="font-semibold text-ink-900">Saksham with Kisan AI:</span>
+              <span>Portable, affordable soil-testing prototype measuring moisture, temperature, NPK, and pH. Connected AI-enabled web software displays readings and provides soil-based crop, fertilizer, and farming guidance.</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">EDUCATION</p>
+          <div class="flex justify-between">
+            <div>
+              <p class="font-semibold text-ink-900">B.Tech in Computer Science and Engineering</p>
+              <p class="text-ink-500">Jaipur National University • Second Year</p>
+            </div>
+            <p class="text-right text-ink-700">Expected 2029</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">SKILLS</p>
+          <p><strong>Programming:</strong> C, C++</p>
+          <p><strong>Frontend:</strong> HTML, CSS, JavaScript, React.js, Tailwind CSS</p>
+          <p><strong>Core Concepts:</strong> OOP, Data Structures and Algorithms (DSA)</p>
+        </div>
+
+        <div>
+          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">CERTIFICATIONS</p>
+          <p>C Programming Certification</p>
+        </div>
+
+        <div>
+          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">ACHIEVEMENTS & PARTICIPATION</p>
+          <p>Seva First Innovation Challenge 2026 • College Startup Sprint • 8-hour college hackathon</p>
+        </div>
+
+        <div>
+          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">STRENGTHS</p>
+          <p>Problem-solving • Teamwork & collaboration • Leadership • Quick learner • Communication • Research & innovation</p>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-divider flex items-center justify-between">
+        <span class="text-xs text-ink-400">Print or Save as PDF</span>
+        <div class="flex gap-2">
+          <button onclick="window.print()" class="px-3 py-1.5 text-xs font-medium rounded bg-zinc-900 text-white hover:bg-zinc-800 transition-colors">
+            Print / PDF
+          </button>
+          <button onclick="closeResumeModal()" class="px-3 py-1.5 text-xs font-medium rounded border border-divider hover:bg-zinc-100 transition-colors">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+    }
+
+    function openResumeModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('resumeModal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeResumeModal() {
+      document.getElementById('resumeModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeResumeModal();
+    });
+
+    document.getElementById('resumeModal').addEventListener('click', (e) => {
+      if (e.target.id === 'resumeModal') closeResumeModal();
+    });
+  </script>
+</body>
+</html>
