@@ -3,565 +3,1013 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jay Verma — Web Development Intern & Software Developer</title>
-  <meta name="description" content="Portfolio of Jay Verma, B.Tech CSE student (2nd Year, Class of 2029) at Jaipur National University. Seeking Web Development & Software Internships.">
+  <title>Jay Verma — Web Developer | AI & Emerging Technologies</title>
+  <meta name="description" content="Personal portfolio of Jay Verma, Computer Science student at Jaipur National University. Web Developer exploring frontend engineering, backend systems, AI integration, and IoT.">
   <meta name="author" content="Jay Verma">
-  
-  <!-- Typography: Pure Google Fonts (Inter for body/headings, JetBrains Mono for metadata) -->
+
+  <!-- GOOGLE FONTS: Instrument Sans (Headings) + Manrope (Body, UI, Paragraphs, Buttons, Forms) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace']
+            sans: ['"Manrope"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            heading: ['"Instrument Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
           },
           colors: {
-            canvas: '#FFFFFF',
-            paper: '#FAFAFA',
-            subtle: '#F4F4F5',
-            divider: '#E4E4E7',
+            canvas: '#FBFBFB',
+            surface: '#FFFFFF',
+            paper: '#F6F6F7',
+            subtle: '#EEEEEF',
+            line: '#E2E2E6',
+            linedark: '#CECECE',
             ink: {
-              900: '#18181B',
-              700: '#3F3F46',
-              500: '#71717A',
-              400: '#A1A1AA',
-              300: '#D4D4D8'
+              950: '#0C0D0E',
+              900: '#17181A',
+              800: '#2A2C30',
+              700: '#40434A',
+              600: '#565A63',
+              500: '#727782',
+              400: '#949BA6',
+              300: '#D0D4DC'
             }
           }
         }
       }
     }
   </script>
+
   <style>
+    :root {
+      --font-heading: 'Instrument Sans', sans-serif;
+      --font-body: 'Manrope', sans-serif;
+    }
+
     * {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
     }
-    code, kbd, samp, pre, .font-mono {
-      font-family: 'JetBrains Mono', monospace !important;
+
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: var(--font-heading) !important;
+      letter-spacing: -0.02em;
     }
+
     body {
-      background-color: #FFFFFF;
-      color: #3F3F46;
-      font-family: 'Inter', sans-serif;
-      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      background-color: #FBFBFB;
+      color: #2A2C30;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+
     ::selection {
-      background-color: #18181B;
+      background-color: #0C0D0E;
       color: #FFFFFF;
     }
-    .badge-tag {
+
+    /* Refined tag without monospace */
+    .skill-pill {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      background: #FFFFFF;
+      border: 1px solid #E2E2E6;
+      color: #2A2C30;
       display: inline-flex;
       align-items: center;
-      padding: 0.25rem 0.625rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      background: #F4F4F5;
-      color: #27272A;
-      border: 1px solid #E4E4E7;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
+      transition: all 0.15s ease;
     }
-    .badge-tag:hover {
-      background: #E4E4E7;
-      border-color: #D4D4D8;
+    .skill-pill:hover {
+      border-color: #0C0D0E;
+      background: #F6F6F7;
     }
-    .nav-anchor {
-      font-size: 0.875rem;
-      font-weight: 450;
-      color: #71717A;
-      transition: color 0.15s ease;
+
+    .project-card {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
     }
-    .nav-anchor:hover {
-      color: #18181B;
+    .project-card:hover {
+      border-color: #0C0D0E;
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.07);
     }
-    /* Subtle editorial hover - No AI glow or bouncy transforms */
-    .editorial-row {
-      transition: background-color 0.15s ease;
-    }
-    .editorial-row:hover {
-      background-color: #FAFAFA;
+
+    .editorial-divider {
+      height: 1px;
+      background-color: #E2E2E6;
+      width: 100%;
     }
   </style>
 </head>
-<body class="selection:bg-zinc-900 selection:text-white text-ink-700 bg-white min-h-screen">
+<body class="selection:bg-ink-950 selection:text-white bg-canvas text-ink-800 min-h-screen">
 
-  <!-- TOP MINIMAL NAVBAR -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-divider">
-    <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-      <a href="#home" class="font-semibold text-sm tracking-tight text-ink-900 flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
-        <span>Jay Verma</span>
+  <!-- TOP STATUS STRIP -->
+  <div class="border-b border-line bg-white text-xs text-ink-600 py-2 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-medium text-ink-900">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+          Available for Internships
+        </span>
+        <span class="text-ink-300">/</span>
+        <span>Jaipur, Rajasthan, India</span>
+      </div>
+      <div class="flex items-center gap-3 text-ink-500">
+        <span>B.Tech CSE • Jaipur National University</span>
+        <span class="text-ink-300">/</span>
+        <span>Class of 2029</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-canvas/90 backdrop-blur-md border-b border-line">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      
+      <!-- Brand Name & Positioning -->
+      <a href="#home" class="group flex items-baseline gap-2.5">
+        <span class="font-heading font-bold text-lg text-ink-950 tracking-tight group-hover:text-black transition-colors">
+          Jay Verma
+        </span>
+        <span class="hidden sm:inline-block text-xs font-medium text-ink-500">
+          — Web Developer | AI & Emerging Technologies
+        </span>
       </a>
 
       <!-- Desktop Links -->
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="#about" class="nav-anchor">About</a>
-        <a href="#skills" class="nav-anchor">Skills</a>
-        <a href="#projects" class="nav-anchor">Projects</a>
-        <a href="#experience" class="nav-anchor">Experience</a>
-        <a href="#contact" class="nav-anchor">Contact</a>
-        <a href="#resumeModal" onclick="openResumeModal(event)" class="ml-2 px-3 py-1 text-xs font-medium rounded-md bg-zinc-900 text-white hover:bg-zinc-800 transition-colors">
-          Resume
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-ink-600">
+        <a href="#about" class="hover:text-ink-950 transition-colors">About</a>
+        <a href="#skills" class="hover:text-ink-950 transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-ink-950 transition-colors flex items-center gap-1.5">
+          <span>Projects</span>
+          <span class="text-xs px-1.5 py-0.2 rounded-full bg-ink-100 text-ink-800 border border-line">4</span>
         </a>
+        <a href="#activities" class="hover:text-ink-950 transition-colors">Activities</a>
+        <a href="#contact" class="hover:text-ink-950 transition-colors">Contact</a>
+        
+        <button onclick="openResumeModal(event)" class="ml-2 inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-md bg-ink-950 text-white hover:bg-ink-800 transition-colors shadow-xs">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span>Resume</span>
+        </button>
       </nav>
 
       <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="md:hidden text-zinc-600 hover:text-zinc-950 p-1">
+      <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="md:hidden text-ink-800 p-2 border border-line rounded-md bg-white">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
 
     <!-- Mobile Dropdown -->
-    <div id="mobileMenu" class="hidden md:hidden border-b border-divider bg-white px-6 py-4 space-y-3">
-      <a href="#about" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">About</a>
-      <a href="#skills" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">Skills</a>
-      <a href="#projects" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">Projects</a>
-      <a href="#experience" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">Experience</a>
-      <a href="#contact" class="block text-sm text-zinc-700 hover:text-zinc-950" onclick="closeMobileMenu()">Contact</a>
-      <button onclick="openResumeModal(event); closeMobileMenu();" class="w-full text-left pt-2 border-t border-zinc-100 text-sm font-medium text-zinc-900">
-        View Resume →
-      </button>
+    <div id="mobileMenu" class="hidden md:hidden border-b border-line bg-white px-6 py-5 space-y-3 text-sm">
+      <a href="#about" class="block font-medium text-ink-700 hover:text-ink-950" onclick="closeMobileMenu()">About</a>
+      <a href="#skills" class="block font-medium text-ink-700 hover:text-ink-950" onclick="closeMobileMenu()">Skills</a>
+      <a href="#projects" class="block font-medium text-ink-700 hover:text-ink-950" onclick="closeMobileMenu()">Projects (4)</a>
+      <a href="#activities" class="block font-medium text-ink-700 hover:text-ink-950" onclick="closeMobileMenu()">Activities & Achievements</a>
+      <a href="#contact" class="block font-medium text-ink-700 hover:text-ink-950" onclick="closeMobileMenu()">Contact</a>
+      <div class="pt-3 border-t border-line">
+        <button onclick="openResumeModal(event); closeMobileMenu();" class="w-full text-center py-2.5 text-xs font-semibold rounded-md bg-ink-950 text-white">
+          View & Download Resume
+        </button>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-6 pt-16 pb-28">
+  <main class="max-w-6xl mx-auto px-6">
 
-    <!-- HERO SECTION -->
-    <section id="home" class="pb-16 pt-2">
-      <div class="flex items-center gap-2 mb-4 text-xs font-mono text-ink-500 uppercase tracking-wider">
-        <span>Bassi, Jaipur, Rajasthan</span>
-        <span>•</span>
-        <span class="text-emerald-700 font-sans font-medium capitalize bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Open to Internships</span>
-      </div>
+    <!-- HERO SECTION (Rich Editorial Presentation with Personality) -->
+    <section id="home" class="pt-14 sm:pt-20 pb-16 sm:pb-20 border-b border-line">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        
+        <!-- Main Bio & Headline Column -->
+        <div class="lg:col-span-8 space-y-6">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white border border-line text-ink-700 shadow-2xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+            <span>Web Developer &bull; AI & Emerging Technologies</span>
+          </div>
 
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-ink-900 leading-tight mb-5">
-        Building Digital Experiences Through Code.
-      </h1>
+          <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-ink-950 leading-[1.1]">
+            Turning ideas into technology that works.
+          </h1>
 
-      <p class="text-base sm:text-lg text-ink-700 leading-relaxed max-w-2xl font-normal mb-8">
-        I am Jay Verma, a 2nd-year Computer Science & Engineering student at Jaipur National University. I build functional web applications and explore software solutions driven by real-world problem-solving.
-      </p>
+          <p class="text-base sm:text-lg text-ink-700 leading-relaxed font-normal max-w-2xl">
+            I'm <strong class="text-ink-950 font-semibold">Jay Verma</strong>, a Computer Science student and web developer interested in building meaningful digital products through web technologies, backend systems, and AI-powered solutions.
+          </p>
 
-      <div class="flex flex-wrap items-center gap-3 text-sm">
-        <a href="#projects" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-md bg-zinc-900 text-white font-medium hover:bg-zinc-800 transition-colors">
-          <span>View Projects</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </a>
+          <!-- Action Buttons & Socials -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <a href="#projects" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-ink-950 text-white font-medium text-sm hover:bg-ink-800 transition-colors shadow-xs">
+              <span>View Projects</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </a>
 
-        <a href="#resumeModal" onclick="openResumeModal(event)" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-md border border-divider bg-white text-zinc-800 font-medium hover:bg-zinc-50 transition-colors">
-          <svg class="w-3.5 h-3.5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          <span>Resume</span>
-        </a>
+            <button onclick="openResumeModal(event)" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-line bg-white text-ink-900 font-medium text-sm hover:bg-paper hover:border-linedark transition-all shadow-xs">
+              <svg class="w-4 h-4 text-ink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Download Resume</span>
+            </button>
 
-        <a href="https://github.com/jayverma123" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-2 text-zinc-600 hover:text-zinc-950 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          <span>github/jayverma123</span>
-          <span class="text-xs text-zinc-400">↗</span>
-        </a>
-      </div>
-    </section>
+            <a href="https://github.com/jayverma123" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium text-ink-600 hover:text-ink-950 transition-colors">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub</span>
+              <span class="text-xs text-ink-400">&nearr;</span>
+            </a>
 
-    <hr class="border-divider my-0">
+            <a href="https://linkedin.com/in/jayverma" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium text-ink-600 hover:text-ink-950 transition-colors">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+              <span class="text-xs text-ink-400">&nearr;</span>
+            </a>
+          </div>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-14">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
-        <div>
-          <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">About</h2>
-          <p class="text-base font-semibold text-ink-900 mt-1">Background & Education</p>
         </div>
 
-        <div class="md:col-span-2 space-y-5 text-sm sm:text-base leading-relaxed text-ink-700">
+        <!-- Right Side Identity Card -->
+        <div class="lg:col-span-4 lg:pl-4">
+          <div class="bg-white border border-line rounded-xl p-6 shadow-xs space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-line">
+              <span class="text-xs font-semibold text-ink-900">Developer Profile</span>
+              <span class="text-xs font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Open to Roles</span>
+            </div>
+
+            <div class="space-y-1">
+              <h2 class="font-heading font-bold text-lg text-ink-950">Jay Verma</h2>
+              <p class="text-xs font-medium text-ink-600">Web Developer | AI & Emerging Technologies</p>
+              <p class="text-xs text-ink-500">Jaipur, Rajasthan, India</p>
+            </div>
+
+            <div class="py-3 border-y border-line space-y-2 text-xs text-ink-700">
+              <div class="flex justify-between">
+                <span class="text-ink-500">College:</span>
+                <span class="font-medium text-right text-ink-900">Jaipur National University</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-ink-500">Degree:</span>
+                <span class="font-medium text-ink-900">B.Tech CSE (2nd Year)</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-ink-500">Graduation:</span>
+                <span class="font-medium text-ink-900">Expected 2029</span>
+              </div>
+            </div>
+
+            <div class="text-xs text-ink-600 space-y-1">
+              <p class="font-medium text-ink-900">Direct Contact:</p>
+              <a href="mailto:jaybassi2007@gmail.com" class="text-ink-700 hover:text-black hover:underline block truncate">jaybassi2007@gmail.com</a>
+              <p class="text-ink-500">+91 9351902361</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ABOUT SECTION (Personal Story & Practical Engineering Focus) -->
+    <section id="about" class="py-16 border-b border-line">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <div class="lg:col-span-4">
+          <p class="text-xs font-bold text-ink-400 uppercase tracking-wider mb-2">01 / BACKGROUND</p>
+          <h2 class="font-heading text-3xl font-bold tracking-tight text-ink-950 mb-2">About Me</h2>
+          <p class="text-sm text-ink-500">
+            Education, technology philosophy, and engineering interests.
+          </p>
+        </div>
+
+        <div class="lg:col-span-8 space-y-5 text-ink-700 text-base leading-relaxed">
           <p>
-            I am a Computer Science and Engineering student at Jaipur National University with hands-on experience building web projects and AI-enabled applications. Interested in web development, practical problem-solving, and exploring AI and IoT solutions. Seeking an internship to contribute to real-world software projects and continue developing technical skills.
+            I am a second-year Computer Science & Engineering student at <strong class="text-ink-950 font-semibold">Jaipur National University</strong>. As a developer, I bridge frontend craftsmanship with functional backend application logic, focusing on building practical software solutions rather than just visual mockups.
+          </p>
+          <p>
+            My day-to-day work centers around contemporary web development with JavaScript and React.js, bolstered by solid foundations in Data Structures, Algorithms, and Object-Oriented Programming with C and C++. I actively explore AI integration and IoT sensor technologies, finding innovative ways to apply computational models to real-world challenges.
           </p>
 
-          <div class="border border-divider rounded-lg p-4 bg-paper">
-            <div class="flex items-start justify-between flex-wrap gap-2 text-sm">
+          <!-- Education Summary Block -->
+          <div class="mt-4 p-5 rounded-xl border border-line bg-white shadow-2xs">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <p class="font-semibold text-ink-900">B.Tech in Computer Science and Engineering</p>
-                <p class="text-ink-500 text-xs sm:text-sm">Jaipur National University • Second Year</p>
+                <span class="text-xs font-semibold text-ink-400 uppercase tracking-wide">Academic Record</span>
+                <h3 class="font-heading text-lg font-bold text-ink-950 mt-0.5">B.Tech in Computer Science and Engineering</h3>
+                <p class="text-sm text-ink-600">Jaipur National University, Jaipur &bull; Second Year (Class of 2029)</p>
               </div>
-              <div class="text-right">
-                <span class="text-xs font-mono text-ink-400 block">Graduation</span>
-                <span class="font-medium text-ink-900 text-xs sm:text-sm">Expected 2029</span>
+              <div class="sm:text-right">
+                <span class="text-xs text-ink-500 block">Status</span>
+                <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 inline-block">
+                  Seeking Internships
+                </span>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <hr class="border-divider my-0">
-
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="py-14">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
-        <div>
-          <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">Skills</h2>
-          <p class="text-base font-semibold text-ink-900 mt-1">Technical Stack</p>
-          <p class="text-xs text-ink-500 mt-1">Foundations and core competencies verified from academic and project practice.</p>
+    <!-- SKILLS SECTION (Four Organized Categories) -->
+    <section id="skills" class="py-16 border-b border-line">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+        
+        <div class="lg:col-span-4">
+          <p class="text-xs font-bold text-ink-400 uppercase tracking-wider mb-2">02 / SKILL MATRIX</p>
+          <h2 class="font-heading text-3xl font-bold tracking-tight text-ink-950 mb-2">Technical Skills</h2>
+          <p class="text-sm text-ink-500">
+            Organized across frontend engineering, backend fundamentals, computer science foundations, and emerging AI technologies.
+          </p>
         </div>
 
-        <div class="md:col-span-2 space-y-6">
-          <!-- Programming -->
-          <div>
-            <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-2">Programming</p>
-            <div class="flex flex-wrap gap-1.5">
-              <span class="badge-tag">C</span>
-              <span class="badge-tag">C++</span>
+        <div class="lg:col-span-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- Category 1: Frontend Development -->
+            <div class="bg-white border border-line rounded-xl p-5 shadow-xs">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-heading font-bold text-base text-ink-950">01. Frontend Development</h3>
+                <span class="w-2 h-2 rounded-full bg-ink-900"></span>
+              </div>
+              <p class="text-xs text-ink-500 mb-3.5">Modern, responsive, user-first interface engineering.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="skill-pill font-semibold">HTML5</span>
+                <span class="skill-pill font-semibold">CSS3</span>
+                <span class="skill-pill font-semibold">JavaScript</span>
+                <span class="skill-pill font-semibold">React.js</span>
+                <span class="skill-pill font-semibold">Tailwind CSS</span>
+                <span class="skill-pill">Responsive Design</span>
+              </div>
             </div>
+
+            <!-- Category 2: Backend Development -->
+            <div class="bg-white border border-line rounded-xl p-5 shadow-xs">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-heading font-bold text-base text-ink-950">02. Backend Development</h3>
+                <span class="w-2 h-2 rounded-full bg-ink-900"></span>
+              </div>
+              <p class="text-xs text-ink-500 mb-3.5">Server-side fundamentals, API integration, and application data flow.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="skill-pill font-semibold">Basic Backend Development</span>
+                <span class="skill-pill font-semibold">API Integration</span>
+                <span class="skill-pill font-semibold">Server-Side Logic</span>
+                <span class="skill-pill">RESTful Workflows</span>
+              </div>
+            </div>
+
+            <!-- Category 3: Programming & Computer Science -->
+            <div class="bg-white border border-line rounded-xl p-5 shadow-xs">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-heading font-bold text-base text-ink-950">03. Programming & CS</h3>
+                <span class="w-2 h-2 rounded-full bg-ink-900"></span>
+              </div>
+              <p class="text-xs text-ink-500 mb-3.5">Algorithmic thinking, object-oriented design, and procedural logic.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="skill-pill font-semibold">C</span>
+                <span class="skill-pill font-semibold">C++</span>
+                <span class="skill-pill font-semibold">OOP</span>
+                <span class="skill-pill font-semibold">DSA</span>
+                <span class="skill-pill">C Programming Certified</span>
+              </div>
+            </div>
+
+            <!-- Category 4: AI & Emerging Technologies -->
+            <div class="bg-white border border-line rounded-xl p-5 shadow-xs">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="font-heading font-bold text-base text-ink-950">04. AI & Emerging Technologies</h3>
+                <span class="w-2 h-2 rounded-full bg-ink-900"></span>
+              </div>
+              <p class="text-xs text-ink-500 mb-3.5">Intelligent application workflows, IoT telemetry, and data processing.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="skill-pill font-semibold">AI Integration</span>
+                <span class="skill-pill font-semibold">AI-Powered Apps</span>
+                <span class="skill-pill font-semibold">IoT Telemetry</span>
+                <span class="skill-pill">Intelligent Software</span>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Frontend -->
-          <div>
-            <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-2">Frontend Development</p>
-            <div class="flex flex-wrap gap-1.5">
-              <span class="badge-tag">HTML</span>
-              <span class="badge-tag">CSS</span>
-              <span class="badge-tag">JavaScript</span>
-              <span class="badge-tag">React.js</span>
-              <span class="badge-tag">Tailwind CSS</span>
-            </div>
+          <!-- Professional Strengths -->
+          <div class="mt-4 p-4 rounded-xl border border-line bg-paper flex flex-wrap items-center justify-between gap-3 text-xs text-ink-700">
+            <span class="font-semibold text-ink-900">Core Strengths:</span>
+            <span>Problem-solving</span> &bull;
+            <span>Teamwork & Collaboration</span> &bull;
+            <span>Leadership</span> &bull;
+            <span>Quick Learner</span> &bull;
+            <span>Communication</span> &bull;
+            <span>Research & Innovation</span>
           </div>
+        </div>
 
-          <!-- Core Concepts -->
-          <div>
-            <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-2">Core Computer Science</p>
-            <div class="flex flex-wrap gap-1.5">
-              <span class="badge-tag">Object-Oriented Programming (OOP)</span>
-              <span class="badge-tag">Data Structures and Algorithms (DSA)</span>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION (Four Rich, Asymmetric Showcases) -->
+    <section id="projects" class="py-16 border-b border-line">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-10">
+        <div>
+          <p class="text-xs font-bold text-ink-400 uppercase tracking-wider mb-1.5">03 / PROJECT WORK</p>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-ink-950">Featured Projects</h2>
+        </div>
+        <p class="text-sm text-ink-500 max-w-md">
+          Client web development, geospatial satellite analysis, AI education, and IoT agricultural systems.
+        </p>
+      </div>
+
+      <div class="space-y-10">
+
+        <!-- PROJECT 01: OM VERMA PORTFOLIO (CLIENT PROJECT) -->
+        <article class="project-card bg-white border border-line rounded-2xl overflow-hidden shadow-xs">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            
+            <div class="lg:col-span-7 p-7 sm:p-9 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-line">
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-amber-50 text-amber-900 border border-amber-200">
+                    Client Project / Web Development
+                  </span>
+                  <span class="text-xs font-medium text-ink-500">Production Website</span>
+                </div>
+
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-ink-950 mb-3 tracking-tight">
+                  Om Verma Portfolio
+                </h3>
+
+                <p class="text-sm sm:text-base text-ink-700 leading-relaxed mb-5">
+                  A bespoke, modern portfolio website built for a client to showcase their career background, technical skillsets, and creative projects. Designed and engineered with attention to responsive design, clean visual hierarchy, and cross-browser accessibility.
+                </p>
+
+                <!-- Key Capabilities -->
+                <div class="mb-5 space-y-1.5">
+                  <p class="text-xs font-bold text-ink-500 uppercase tracking-wider">PROJECT HIGHLIGHTS</p>
+                  <ul class="text-xs text-ink-700 space-y-1 font-medium">
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Custom client portfolio design tailored to their personal brand</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Responsive cross-device layout optimized for mobile, tablet, and desktop</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Fast loading performance with semantic HTML, CSS, and modern JavaScript</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 mb-6">
+                  <span class="skill-pill font-semibold">Web Development</span>
+                  <span class="skill-pill font-semibold">HTML5 & CSS3</span>
+                  <span class="skill-pill font-semibold">JavaScript</span>
+                  <span class="skill-pill font-semibold">Responsive UI</span>
+                  <span class="skill-pill">Client Work</span>
+                </div>
+              </div>
+
+              <!-- Action Links -->
+              <div class="pt-5 border-t border-line flex flex-wrap items-center gap-3">
+                <a href="https://github.com/jayverma123/omvermaportfolio" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-ink-950 text-white text-xs font-semibold hover:bg-ink-800 transition-colors">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  <span>GitHub Repository</span>
+                  <span class="text-xs">&nearr;</span>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <!-- Certification & Strengths -->
-          <div class="pt-4 border-t border-divider grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-1.5">Certification</p>
-              <p class="text-sm font-medium text-ink-900 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                C Programming Certification
+            <!-- Right Visual Preview -->
+            <div class="lg:col-span-5 bg-paper p-7 flex flex-col justify-center items-center">
+              <div class="w-full max-w-sm bg-white border border-line rounded-xl p-5 shadow-sm space-y-3">
+                <div class="flex items-center justify-between pb-3 border-b border-line text-xs">
+                  <span class="font-bold text-ink-950">CLIENT WEBSITE MOCKUP</span>
+                  <span class="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">DEPLOYED</span>
+                </div>
+                
+                <div class="border border-line rounded-lg p-3 bg-zinc-50 space-y-2">
+                  <div class="h-4 bg-zinc-200 rounded w-2/3"></div>
+                  <div class="h-3 bg-zinc-200 rounded w-full"></div>
+                  <div class="h-3 bg-zinc-200 rounded w-4/5"></div>
+                  <div class="grid grid-cols-2 gap-2 pt-2">
+                    <div class="h-14 bg-white border border-line rounded p-2 text-[10px] text-ink-500 flex items-center justify-center text-center">
+                      Project Showcase Module
+                    </div>
+                    <div class="h-14 bg-white border border-line rounded p-2 text-[10px] text-ink-500 flex items-center justify-center text-center">
+                      Interactive Bio & Skills
+                    </div>
+                  </div>
+                </div>
+
+                <p class="text-[11px] text-ink-500 text-center">
+                  Full custom web experience designed for client presentation
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- PROJECT 02: QUANTUM VISION -->
+        <article class="project-card bg-white border border-line rounded-2xl overflow-hidden shadow-xs">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            
+            <div class="lg:col-span-7 p-7 sm:p-9 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-line">
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-50 text-blue-900 border border-blue-200">
+                    Geospatial Platform
+                  </span>
+                  <span class="text-xs font-medium text-ink-500">Satellite Analysis</span>
+                </div>
+
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-ink-950 mb-3 tracking-tight">
+                  Quantum Vision
+                </h3>
+
+                <p class="text-sm sm:text-base text-ink-700 leading-relaxed mb-5">
+                  Satellite imagery platform focused on semantic retrieval and multi-temporal change analysis. Designed to compare before-and-after TIFF imagery and help users review detected geographical and environmental shifts over time.
+                </p>
+
+                <!-- Key Capabilities -->
+                <div class="mb-5 space-y-1.5">
+                  <p class="text-xs font-bold text-ink-500 uppercase tracking-wider">KEY CAPABILITIES</p>
+                  <ul class="text-xs text-ink-700 space-y-1 font-medium">
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Satellite data ingestion & TIFF imagery format parsing</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Multi-temporal change analysis (before vs after epoch comparison)</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Semantic retrieval & environmental index compute (NDVI / NDBI)</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 mb-6">
+                  <span class="skill-pill font-semibold">Satellite Data</span>
+                  <span class="skill-pill font-semibold">Geospatial Analysis</span>
+                  <span class="skill-pill font-semibold">TIFF Processing</span>
+                  <span class="skill-pill font-semibold">Semantic Retrieval</span>
+                  <span class="skill-pill">Multi-temporal Analysis</span>
+                </div>
+              </div>
+
+              <!-- Action Links -->
+              <div class="pt-5 border-t border-line flex flex-wrap items-center gap-3">
+                <a href="https://github.com/jayverma123/Quantum-Vision" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-ink-950 text-white text-xs font-semibold hover:bg-ink-800 transition-colors">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  <span>GitHub Repository</span>
+                  <span class="text-xs">&nearr;</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Visual Preview -->
+            <div class="lg:col-span-5 bg-paper p-7 flex flex-col justify-center items-center">
+              <div class="w-full max-w-sm bg-white border border-line rounded-xl p-5 shadow-sm space-y-3">
+                <div class="flex items-center justify-between pb-3 border-b border-line text-xs">
+                  <span class="font-bold text-ink-950">GEOSPATIAL COMPARISON</span>
+                  <span class="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">TIFF VERIFIED</span>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                  <div class="border border-line rounded p-2.5 bg-zinc-50 text-center">
+                    <p class="text-[10px] text-ink-500 mb-1">EPOCH 01 (BEFORE)</p>
+                    <div class="h-16 rounded bg-zinc-200 flex items-center justify-center font-medium text-ink-600 text-[11px]">
+                      Baseline Image
+                    </div>
+                  </div>
+                  <div class="border border-line rounded p-2.5 bg-zinc-50 text-center">
+                    <p class="text-[10px] text-ink-500 mb-1">EPOCH 02 (AFTER)</p>
+                    <div class="h-16 rounded bg-emerald-100/70 border border-emerald-200 flex items-center justify-center font-medium text-emerald-900 text-[11px]">
+                      Delta Overlay
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-2.5 rounded bg-zinc-50 border border-line text-xs space-y-1">
+                  <div class="flex justify-between text-[11px]">
+                    <span class="text-ink-600">Change Metrics (NDVI/NDBI):</span>
+                    <span class="font-semibold text-ink-950">Active Processing</span>
+                  </div>
+                  <div class="w-full bg-zinc-200 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-ink-950 h-full w-3/4"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- PROJECT 03: EDUGAP AI -->
+        <article class="project-card bg-white border border-line rounded-2xl overflow-hidden shadow-xs">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            
+            <div class="lg:col-span-7 p-7 sm:p-9 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-line">
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-purple-50 text-purple-900 border border-purple-200">
+                    AI Educational Software
+                  </span>
+                  <span class="text-xs font-medium text-ink-500">Personalized Learning</span>
+                </div>
+
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-ink-950 mb-3 tracking-tight">
+                  EduGap AI
+                </h3>
+
+                <p class="text-sm sm:text-base text-ink-700 leading-relaxed mb-5">
+                  An AI-focused education project designed to support personalized learning and help identify learning gaps. Developed to evaluate student curriculum comprehension and deliver tailored academic guidance.
+                </p>
+
+                <!-- Key Capabilities -->
+                <div class="mb-5 space-y-1.5">
+                  <p class="text-xs font-bold text-ink-500 uppercase tracking-wider">KEY CAPABILITIES</p>
+                  <ul class="text-xs text-ink-700 space-y-1 font-medium">
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Personalized academic learning diagnostics & gap identification</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Tailored curriculum recommendations based on student progress</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>AI model integration for adaptive student tutoring workflows</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 mb-6">
+                  <span class="skill-pill font-semibold">AI Integration</span>
+                  <span class="skill-pill font-semibold">Educational Tech</span>
+                  <span class="skill-pill font-semibold">Personalized Learning</span>
+                  <span class="skill-pill font-semibold">Diagnostic Analytics</span>
+                </div>
+              </div>
+
+              <!-- Action Links -->
+              <div class="pt-5 border-t border-line flex flex-wrap items-center gap-3">
+                <a href="https://github.com/jayverma123/EDU-GAP-AI" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-ink-950 text-white text-xs font-semibold hover:bg-ink-800 transition-colors">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  <span>GitHub Repository</span>
+                  <span class="text-xs">&nearr;</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Visual Preview -->
+            <div class="lg:col-span-5 bg-paper p-7 flex flex-col justify-center items-center">
+              <div class="w-full max-w-sm bg-white border border-line rounded-xl p-5 shadow-sm space-y-3">
+                <div class="flex items-center justify-between pb-3 border-b border-line text-xs">
+                  <span class="font-bold text-ink-950">ADAPTIVE LEARNING ENGINE</span>
+                  <span class="text-purple-700 font-semibold bg-purple-50 px-2 py-0.5 rounded border border-purple-200">AI WORKFLOW</span>
+                </div>
+                
+                <div class="space-y-2 text-xs">
+                  <div class="p-2 rounded bg-zinc-50 border border-line flex justify-between">
+                    <span class="text-ink-600">Curriculum Diagnostics:</span>
+                    <span class="font-semibold text-emerald-700">Complete</span>
+                  </div>
+                  <div class="p-2 rounded bg-zinc-50 border border-line flex justify-between">
+                    <span class="text-ink-600">Identified Gaps:</span>
+                    <span class="font-semibold text-ink-900">2 Focus Areas</span>
+                  </div>
+                  <div class="p-2 rounded bg-zinc-50 border border-line flex justify-between">
+                    <span class="text-ink-600">Tailored Plan:</span>
+                    <span class="font-semibold text-ink-900">Generated</span>
+                  </div>
+                </div>
+
+                <p class="text-[11px] text-ink-500 text-center">
+                  Intelligent learning roadmap tailored to individual students
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- PROJECT 04: SAKSHAM WITH KISAN AI -->
+        <article class="project-card bg-white border border-line rounded-2xl overflow-hidden shadow-xs">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            
+            <div class="lg:col-span-7 p-7 sm:p-9 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-line">
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-900 border border-emerald-200">
+                    IoT Hardware & Web Application
+                  </span>
+                  <span class="text-xs font-medium text-ink-500">AgriTech Solution</span>
+                </div>
+
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-ink-950 mb-3 tracking-tight">
+                  Saksham with Kisan AI
+                </h3>
+
+                <p class="text-sm sm:text-base text-ink-700 leading-relaxed mb-5">
+                  An integrated IoT-based agricultural solution. Portable, affordable soil-testing prototype measuring moisture, temperature, NPK, and pH. Connected AI-enabled web software displays readings and provides soil-based crop, fertilizer, and farming guidance.
+                </p>
+
+                <!-- Key Capabilities -->
+                <div class="mb-5 space-y-1.5">
+                  <p class="text-xs font-bold text-ink-500 uppercase tracking-wider">HARDWARE & SOFTWARE HIGHLIGHTS</p>
+                  <ul class="text-xs text-ink-700 space-y-1 font-medium">
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Sensor array: Soil moisture, ambient temperature, NPK, and soil pH</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Real-time web dashboard displaying sensor telemetry</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
+                      <span>Automated crop selection and targeted fertilizer recommendation engine</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 mb-6">
+                  <span class="skill-pill font-semibold">IoT Sensors</span>
+                  <span class="skill-pill font-semibold">Soil Testing (NPK / pH)</span>
+                  <span class="skill-pill font-semibold">AI Web Software</span>
+                  <span class="skill-pill font-semibold">Agricultural Tech</span>
+                </div>
+              </div>
+
+              <!-- Action Status -->
+              <div class="pt-5 border-t border-line flex items-center justify-between">
+                <span class="text-xs font-medium text-ink-600">Hardware Prototype + Connected Web Dashboard</span>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded bg-zinc-100 text-ink-900 border border-line">Integrated Prototype</span>
+              </div>
+            </div>
+
+            <!-- Right Visual Preview -->
+            <div class="lg:col-span-5 bg-paper p-7 flex flex-col justify-center items-center">
+              <div class="w-full max-w-sm bg-white border border-line rounded-xl p-5 shadow-sm space-y-3">
+                <div class="flex items-center justify-between pb-3 border-b border-line text-xs">
+                  <span class="font-bold text-ink-950">SOIL TELEMETRY</span>
+                  <span class="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">LIVE SENSORS</span>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                  <div class="p-2.5 rounded bg-zinc-50 border border-line">
+                    <span class="text-[10px] text-ink-500 block">SOIL MOISTURE</span>
+                    <span class="font-bold text-ink-950 text-sm">34.2%</span>
+                  </div>
+                  <div class="p-2.5 rounded bg-zinc-50 border border-line">
+                    <span class="text-[10px] text-ink-500 block">SOIL pH</span>
+                    <span class="font-bold text-ink-950 text-sm">6.8 pH</span>
+                  </div>
+                  <div class="p-2.5 rounded bg-zinc-50 border border-line">
+                    <span class="text-[10px] text-ink-500 block">NPK RATIO</span>
+                    <span class="font-bold text-ink-950 text-sm">Optimal</span>
+                  </div>
+                  <div class="p-2.5 rounded bg-zinc-50 border border-line">
+                    <span class="text-[10px] text-ink-500 block">TEMPERATURE</span>
+                    <span class="font-bold text-ink-950 text-sm">26.5 °C</span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 rounded bg-emerald-50/70 border border-emerald-200 text-xs text-emerald-900">
+                  <span class="font-bold block mb-0.5">Crop Recommendation:</span>
+                  <span>Parameters optimal for wheat; recommended standard organic supplement.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ACTIVITIES & PARTICIPATION SECTION (Honest Timeline) -->
+    <section id="activities" class="py-16 border-b border-line">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <div class="lg:col-span-4">
+          <p class="text-xs font-bold text-ink-400 uppercase tracking-wider mb-2">04 / ENGAGEMENT</p>
+          <h2 class="font-heading text-3xl font-bold tracking-tight text-ink-950 mb-2">Activities & Experience</h2>
+          <p class="text-sm text-ink-500">
+            Participation in innovation challenges, startup sprints, and competitive collegiate hackathons.
+          </p>
+        </div>
+
+        <div class="lg:col-span-8">
+          <div class="border-l border-line pl-6 sm:pl-8 space-y-8">
+
+            <!-- Item 1 -->
+            <div class="relative">
+              <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white bg-ink-950 ring-4 ring-zinc-100"></div>
+              <div class="flex items-center gap-2 mb-1 text-xs">
+                <span class="font-bold text-ink-900 bg-zinc-100 px-2 py-0.5 rounded border border-line">2026</span>
+                <span class="text-ink-500">&bull; Innovation Challenge</span>
+              </div>
+              <h3 class="font-heading text-xl font-bold text-ink-950">Seva First Innovation Challenge 2026</h3>
+              <p class="text-sm text-ink-600 mt-1.5 leading-relaxed">
+                Selected participant developing innovative software and tech ideas geared toward public utility, community benefit, and practical application.
               </p>
             </div>
 
-            <div>
-              <p class="text-xs font-mono uppercase tracking-wider text-ink-400 mb-1.5">Strengths</p>
-              <p class="text-xs text-ink-700 leading-normal">
-                Problem-solving, Teamwork, Leadership, Quick learner, Communication, Research & innovation.
+            <!-- Item 2 -->
+            <div class="relative">
+              <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white bg-ink-600 ring-4 ring-zinc-100"></div>
+              <div class="flex items-center gap-2 mb-1 text-xs">
+                <span class="font-bold text-ink-900 bg-zinc-100 px-2 py-0.5 rounded border border-line">Incubator</span>
+                <span class="text-ink-500">&bull; Campus Sprint</span>
+              </div>
+              <h3 class="font-heading text-xl font-bold text-ink-950">College Startup Sprint</h3>
+              <p class="text-sm text-ink-600 mt-1.5 leading-relaxed">
+                Active participant in an entrepreneurial product sprint, collaborating on ideation, problem validation, and fast-paced technical prototyping.
               </p>
             </div>
+
+            <!-- Item 3 -->
+            <div class="relative">
+              <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white bg-ink-600 ring-4 ring-zinc-100"></div>
+              <div class="flex items-center gap-2 mb-1 text-xs">
+                <span class="font-bold text-ink-900 bg-zinc-100 px-2 py-0.5 rounded border border-line">Hackathon</span>
+                <span class="text-ink-500">&bull; 8-Hour Timed Sprint</span>
+              </div>
+              <h3 class="font-heading text-xl font-bold text-ink-950">8-Hour College Hackathon</h3>
+              <p class="text-sm text-ink-600 mt-1.5 leading-relaxed">
+                Collaborated under tight 8-hour constraints to build and present a functional software solution addressing designated technical requirements.
+              </p>
+            </div>
+
           </div>
         </div>
-      </div>
-    </section>
-
-    <hr class="border-divider my-0">
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="py-14">
-      <div class="mb-8">
-        <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">Selected Works</h2>
-        <p class="text-base font-semibold text-ink-900 mt-1">Projects</p>
-      </div>
-
-      <div class="divide-y divide-divider border-y border-divider">
-
-        <!-- PROJECT 1: QuantumVision -->
-        <article class="py-8 editorial-row -mx-4 px-4 rounded-md transition-colors">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-            <h3 class="text-lg font-semibold text-ink-900 flex items-center gap-2">
-              <span>QuantumVision</span>
-              <span class="text-xs font-mono font-normal text-ink-400">/ 2026</span>
-            </h3>
-            <a href="https://github.com/jayverma123/Quantum-Vision" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-zinc-600 hover:text-black inline-flex items-center gap-1">
-              <span>github.com/jayverma123/Quantum-Vision</span>
-              <span>↗</span>
-            </a>
-          </div>
-          <p class="text-sm text-ink-700 leading-relaxed mb-4 max-w-3xl">
-            Satellite imagery platform focused on semantic retrieval and multi-temporal change analysis. Designed to compare before-and-after TIFF imagery and help users review detected changes.
-          </p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="badge-tag">Satellite Data</span>
-            <span class="badge-tag">TIFF Processing</span>
-            <span class="badge-tag">Semantic Retrieval</span>
-            <span class="badge-tag">Multi-temporal Change Analysis</span>
-          </div>
-        </article>
-
-        <!-- PROJECT 2: EduGap AI -->
-        <article class="py-8 editorial-row -mx-4 px-4 rounded-md transition-colors">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-            <h3 class="text-lg font-semibold text-ink-900 flex items-center gap-2">
-              <span>EduGap AI</span>
-              <span class="text-xs font-mono font-normal text-ink-400">/ 2026</span>
-            </h3>
-            <a href="https://github.com/jayverma123/EDU-GAP-AI" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-zinc-600 hover:text-black inline-flex items-center gap-1">
-              <span>github.com/jayverma123/EDU-GAP-AI</span>
-              <span>↗</span>
-            </a>
-          </div>
-          <p class="text-sm text-ink-700 leading-relaxed mb-4 max-w-3xl">
-            AI-focused education project designed to support personalized learning and help identify learning gaps.
-          </p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="badge-tag">Personalized Learning</span>
-            <span class="badge-tag">Diagnostic Analytics</span>
-            <span class="badge-tag">AI Application</span>
-          </div>
-        </article>
-
-        <!-- PROJECT 3: Saksham with Kisan AI -->
-        <article class="py-8 editorial-row -mx-4 px-4 rounded-md transition-colors">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-            <h3 class="text-lg font-semibold text-ink-900 flex items-center gap-2">
-              <span>Saksham with Kisan AI</span>
-              <span class="text-xs font-mono font-normal text-ink-400">/ Hardware + Web</span>
-            </h3>
-            <span class="text-xs font-mono text-ink-400">IoT Solution</span>
-          </div>
-          <p class="text-sm text-ink-700 leading-relaxed mb-4 max-w-3xl">
-            Portable, affordable soil-testing prototype measuring moisture, temperature, NPK, and pH. Connected AI-enabled web software displays readings and provides soil-based crop, fertilizer, and farming guidance.
-          </p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="badge-tag">IoT Sensors</span>
-            <span class="badge-tag">Soil NPK & pH</span>
-            <span class="badge-tag">AI Web Software</span>
-            <span class="badge-tag">AgriTech</span>
-          </div>
-        </article>
-
-        <!-- PROJECT 4: Portfolio Website -->
-        <article class="py-8 editorial-row -mx-4 px-4 rounded-md transition-colors">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-            <h3 class="text-lg font-semibold text-ink-900 flex items-center gap-2">
-              <span>Portfolio Website</span>
-              <span class="text-xs font-mono font-normal text-ink-400">/ Frontend</span>
-            </h3>
-            <a href="#home" class="text-xs font-mono text-zinc-600 hover:text-black inline-flex items-center gap-1">
-              <span>Current Site</span>
-            </a>
-          </div>
-          <p class="text-sm text-ink-700 leading-relaxed mb-4 max-w-3xl">
-            Personal web portfolio built to present development work, projects, and technical skills. Built with semantic HTML, Tailwind CSS, clean typographical scale, and mobile-responsive layouts.
-          </p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="badge-tag">HTML5</span>
-            <span class="badge-tag">Tailwind CSS</span>
-            <span class="badge-tag">JavaScript</span>
-            <span class="badge-tag">Responsive UI</span>
-          </div>
-        </article>
 
       </div>
     </section>
 
-    <hr class="border-divider my-0">
-
-    <!-- EXPERIENCE & PARTICIPATION SECTION -->
-    <section id="experience" class="py-14">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
-        <div>
-          <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">Activities</h2>
-          <p class="text-base font-semibold text-ink-900 mt-1">Achievements & Participation</p>
-          <p class="text-xs text-ink-500 mt-1">Honest engagement in hackathons, sprints, and innovation programs.</p>
-        </div>
-
-        <div class="md:col-span-2 space-y-6">
-          <div class="border-b border-divider pb-5">
-            <div class="flex items-center justify-between text-xs font-mono text-ink-400 mb-1">
-              <span>Innovation Challenge</span>
-              <span>2026</span>
-            </div>
-            <h3 class="text-base font-semibold text-ink-900">Seva First Innovation Challenge 2026</h3>
-            <p class="text-sm text-ink-700 mt-1 leading-relaxed">
-              Participated with solution proposals addressing civic challenges and public utility through practical tech implementation.
+    <!-- CONTACT SECTION (Impactful Closing Inquiries Grid) -->
+    <section id="contact" class="py-16">
+      <div class="bg-white border border-line rounded-2xl p-7 sm:p-10 shadow-xs">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pb-8 border-b border-line mb-8">
+          <div class="lg:col-span-8 space-y-2">
+            <p class="text-xs font-bold text-ink-400 uppercase tracking-wider">05 / CONNECT</p>
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-ink-950">
+              Have an interesting project in mind?
+            </h2>
+            <p class="text-sm sm:text-base text-ink-600 max-w-xl leading-relaxed">
+              I am actively looking for web development and software engineering internship opportunities. Whether you have an internship role, client project, or technical question, feel free to reach out.
             </p>
           </div>
 
-          <div class="border-b border-divider pb-5">
-            <div class="flex items-center justify-between text-xs font-mono text-ink-400 mb-1">
-              <span>Incubator Sprint</span>
-              <span>College Activity</span>
-            </div>
-            <h3 class="text-base font-semibold text-ink-900">College Startup Sprint</h3>
-            <p class="text-sm text-ink-700 mt-1 leading-relaxed">
-              Engaged in hands-on prototyping, product validation, and fast-paced iterations during an organized campus startup sprint.
-            </p>
-          </div>
-
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono text-ink-400 mb-1">
-              <span>Competitive Hackathon</span>
-              <span>8 Hours</span>
-            </div>
-            <h3 class="text-base font-semibold text-ink-900">8-Hour College Hackathon</h3>
-            <p class="text-sm text-ink-700 mt-1 leading-relaxed">
-              Collaborated under timed constraints to develop a working software solution and pitch functional code to evaluators.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="border-divider my-0">
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-14">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
-        <div>
-          <h2 class="text-xs font-mono uppercase tracking-wider text-ink-500 font-medium">Contact</h2>
-          <p class="text-base font-semibold text-ink-900 mt-1">Get in Touch</p>
-          <p class="text-xs text-ink-500 mt-1">Available for internships, project work, and collaboration.</p>
-        </div>
-
-        <div class="md:col-span-2 space-y-4">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-            <!-- Email -->
-            <a href="mailto:jaybassi2007@gmail.com" class="border border-divider p-4 rounded-lg hover:border-ink-900 hover:bg-paper transition-all group block">
-              <span class="text-xs font-mono text-ink-400 block mb-1">EMAIL</span>
-              <span class="font-medium text-ink-900 group-hover:underline">jaybassi2007@gmail.com</span>
-            </a>
-
-            <!-- Phone -->
-            <a href="tel:+919351902361" class="border border-divider p-4 rounded-lg hover:border-ink-900 hover:bg-paper transition-all group block">
-              <span class="text-xs font-mono text-ink-400 block mb-1">PHONE</span>
-              <span class="font-medium text-ink-900 group-hover:underline">+91 9351902361</span>
-            </a>
-
-            <!-- GitHub -->
-            <a href="https://github.com/jayverma123" target="_blank" rel="noopener noreferrer" class="border border-divider p-4 rounded-lg hover:border-ink-900 hover:bg-paper transition-all group block">
-              <span class="text-xs font-mono text-ink-400 block mb-1">GITHUB</span>
-              <span class="font-medium text-ink-900 group-hover:underline">github.com/jayverma123 ↗</span>
-            </a>
-
-            <!-- Location -->
-            <div class="border border-divider p-4 rounded-lg bg-paper">
-              <span class="text-xs font-mono text-ink-400 block mb-1">LOCATION</span>
-              <span class="font-medium text-ink-900">Bassi, Jaipur, Rajasthan</span>
-            </div>
-          </div>
-
-          <div class="pt-3">
-            <a href="mailto:jaybassi2007@gmail.com?subject=Web%20Development%20Internship%20Inquiry%20-%20Jay%20Verma" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-900 text-white text-xs font-medium hover:bg-zinc-800 transition-colors">
-              <span>Send Direct Message</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          <div class="lg:col-span-4 lg:text-right">
+            <a href="mailto:jaybassi2007@gmail.com?subject=Web%20Development%20Internship%20Inquiry%20-%20Jay%20Verma" class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-ink-950 text-white text-sm font-semibold hover:bg-ink-800 transition-colors shadow-xs">
+              <span>Send An Email</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </div>
+
+        <!-- Contact Links Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          
+          <a href="mailto:jaybassi2007@gmail.com" class="p-4 rounded-xl border border-line hover:border-ink-950 bg-paper transition-all block group">
+            <span class="text-ink-400 font-bold block mb-1">EMAIL</span>
+            <span class="font-semibold text-ink-950 text-sm group-hover:underline break-all">jaybassi2007@gmail.com</span>
+          </a>
+
+          <a href="tel:+919351902361" class="p-4 rounded-xl border border-line hover:border-ink-950 bg-paper transition-all block group">
+            <span class="text-ink-400 font-bold block mb-1">PHONE</span>
+            <span class="font-semibold text-ink-950 text-sm group-hover:underline">+91 9351902361</span>
+          </a>
+
+          <a href="https://github.com/jayverma123" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl border border-line hover:border-ink-950 bg-paper transition-all block group">
+            <span class="text-ink-400 font-bold block mb-1">GITHUB</span>
+            <span class="font-semibold text-ink-950 text-sm group-hover:underline">github.com/jayverma123 &nearr;</span>
+          </a>
+
+          <div class="p-4 rounded-xl border border-line bg-paper">
+            <span class="text-ink-400 font-bold block mb-1">LOCATION</span>
+            <span class="font-semibold text-ink-950 text-sm">Bassi, Jaipur, Rajasthan</span>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- MINIMAL FOOTER -->
-  <footer class="border-t border-divider py-8 bg-paper">
-    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-500">
-      <p>© 2026 Jay Verma — B.Tech CSE, Jaipur National University</p>
-      <div class="flex items-center gap-5">
-        <a href="#home" class="hover:text-ink-900 transition-colors">Top ↑</a>
-        <a href="https://github.com/jayverma123" target="_blank" rel="noopener noreferrer" class="hover:text-ink-900 transition-colors">GitHub</a>
-        <a href="mailto:jaybassi2007@gmail.com" class="hover:text-ink-900 transition-colors">Email</a>
+  <!-- FOOTER -->
+  <footer class="border-t border-line bg-white py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-ink-500">
+      <div class="flex items-center gap-2">
+        <span class="font-heading font-bold text-ink-950 text-sm">JAY VERMA</span>
+        <span>&bull;</span>
+        <span>Web Developer | AI & Emerging Technologies &bull; Jaipur National University</span>
+      </div>
+
+      <div class="flex items-center gap-5 font-medium">
+        <a href="#home" class="hover:text-ink-950 transition-colors">Top &uarr;</a>
+        <a href="https://github.com/jayverma123" target="_blank" rel="noopener noreferrer" class="hover:text-ink-950 transition-colors">GitHub</a>
+        <a href="https://linkedin.com/in/jayverma" target="_blank" rel="noopener noreferrer" class="hover:text-ink-950 transition-colors">LinkedIn</a>
+        <a href="mailto:jaybassi2007@gmail.com" class="hover:text-ink-950 transition-colors">Email</a>
       </div>
     </div>
   </footer>
 
-  <!-- MINIMAL RESUME MODAL -->
-  <div id="resumeModal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-[2px] flex items-center justify-center p-4">
-    <div class="bg-white rounded-xl max-w-2xl w-full p-6 sm:p-8 shadow-xl border border-divider max-h-[92vh] overflow-y-auto">
-      <div class="flex items-start justify-between pb-4 border-b border-divider">
+  <!-- RESUME MODAL -->
+  <div id="resumeModal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-line max-h-[92vh] overflow-y-auto">
+      <div class="flex items-start justify-between pb-4 border-b border-line">
         <div>
-          <h3 class="text-xl font-semibold text-ink-900">JAY VERMA</h3>
-          <p class="text-xs text-ink-500 mt-0.5">Bassi, Jaipur, Rajasthan • +91 9351902361 • jaybassi2007@gmail.com</p>
+          <h3 class="font-heading text-2xl font-bold text-ink-950">JAY VERMA</h3>
+          <p class="text-xs text-ink-600 mt-0.5">Bassi, Jaipur, Rajasthan &bull; +91 9351902361 &bull; jaybassi2007@gmail.com</p>
           <p class="text-xs text-ink-500">github.com/jayverma123</p>
         </div>
         <div class="text-right">
-          <span class="text-xs font-mono font-medium text-ink-500 block">Web Development Intern</span>
-          <button onclick="closeResumeModal()" class="text-xs text-ink-400 hover:text-ink-900 mt-2">
-            Close ✕
+          <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded bg-zinc-100 text-ink-900 border border-line">
+            Web Developer
+          </span>
+          <button onclick="closeResumeModal()" class="block mt-2 ml-auto text-ink-400 hover:text-ink-950 p-1">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
       </div>
 
-      <div class="py-5 space-y-5 text-xs text-ink-700 leading-normal">
+      <div class="py-5 space-y-4 text-xs text-ink-700 leading-relaxed">
         <div>
-          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">ABOUT ME</p>
-          <p class="text-ink-700">Computer Science and Engineering student at Jaipur National University with hands-on experience building web projects and AI-enabled applications. Interested in web development, practical problem-solving, and exploring AI and IoT solutions. Seeking an internship to contribute to real-world software projects and continue developing technical skills.</p>
+          <p class="font-bold text-ink-400 uppercase tracking-wider mb-1">ABOUT ME</p>
+          <p>
+            Computer Science and Engineering student at Jaipur National University with hands-on experience building web projects and AI-enabled applications. Interested in web development, practical problem-solving, and exploring AI and IoT solutions. Seeking an internship to contribute to real-world software projects and continue developing technical skills.
+          </p>
         </div>
 
         <div>
-          <p class="font-mono uppercase font-semibold text-ink-400 mb-1.5">PROJECTS</p>
+          <p class="font-bold text-ink-400 uppercase tracking-wider mb-1.5">PROJECTS</p>
           <div class="space-y-2">
             <div>
-              <span class="font-semibold text-ink-900">QuantumVision:</span>
-              <span>Satellite imagery platform focused on semantic retrieval and multi-temporal change analysis. Designed to compare before-and-after TIFF imagery and help users review detected changes.</span>
+              <p class="font-bold text-ink-950">Om Verma Portfolio (Client Project)</p>
+              <p>Custom client portfolio website designed and developed with modern responsive layouts and clean information architecture.</p>
             </div>
             <div>
-              <span class="font-semibold text-ink-900">EduGap AI:</span>
-              <span>AI-focused education project designed to support personalized learning and help identify learning gaps.</span>
+              <p class="font-bold text-ink-950">QuantumVision</p>
+              <p>Satellite imagery platform focused on semantic retrieval and multi-temporal change analysis. Designed to compare before-and-after TIFF imagery and help users review detected changes.</p>
             </div>
             <div>
-              <span class="font-semibold text-ink-900">Portfolio Website:</span>
-              <span>Personal web portfolio built to present development work, projects, and technical skills.</span>
+              <p class="font-bold text-ink-950">EduGap AI</p>
+              <p>AI-focused education project designed to support personalized learning and help identify learning gaps.</p>
             </div>
             <div>
-              <span class="font-semibold text-ink-900">Saksham with Kisan AI:</span>
-              <span>Portable, affordable soil-testing prototype measuring moisture, temperature, NPK, and pH. Connected AI-enabled web software displays readings and provides soil-based crop, fertilizer, and farming guidance.</span>
+              <p class="font-bold text-ink-950">Saksham with Kisan AI</p>
+              <p>Portable, affordable soil-testing prototype measuring moisture, temperature, NPK, and pH. Connected AI-enabled web software displays readings and provides soil-based crop, fertilizer, and farming guidance.</p>
             </div>
           </div>
         </div>
 
         <div>
-          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">EDUCATION</p>
+          <p class="font-bold text-ink-400 uppercase tracking-wider mb-1">EDUCATION</p>
           <div class="flex justify-between">
             <div>
-              <p class="font-semibold text-ink-900">B.Tech in Computer Science and Engineering</p>
-              <p class="text-ink-500">Jaipur National University • Second Year</p>
+              <p class="font-bold text-ink-950">B.Tech in Computer Science and Engineering</p>
+              <p class="text-ink-600">Jaipur National University &bull; Second Year</p>
             </div>
             <p class="text-right text-ink-700">Expected 2029</p>
           </div>
         </div>
 
         <div>
-          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">SKILLS</p>
-          <p><strong>Programming:</strong> C, C++</p>
+          <p class="font-bold text-ink-400 uppercase tracking-wider mb-1">SKILLS</p>
           <p><strong>Frontend:</strong> HTML, CSS, JavaScript, React.js, Tailwind CSS</p>
-          <p><strong>Core Concepts:</strong> OOP, Data Structures and Algorithms (DSA)</p>
+          <p><strong>Backend:</strong> Basic Backend Development, API Integration, Server-Side Fundamentals</p>
+          <p><strong>Programming & CS:</strong> C, C++, OOP, Data Structures and Algorithms (DSA)</p>
+          <p><strong>AI & Emerging Tech:</strong> AI Integration, IoT Systems, Intelligent Applications</p>
         </div>
 
         <div>
-          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">CERTIFICATIONS</p>
+          <p class="font-bold text-ink-400 uppercase tracking-wider mb-0.5">CERTIFICATIONS</p>
           <p>C Programming Certification</p>
         </div>
 
         <div>
-          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">ACHIEVEMENTS & PARTICIPATION</p>
-          <p>Seva First Innovation Challenge 2026 • College Startup Sprint • 8-hour college hackathon</p>
-        </div>
-
-        <div>
-          <p class="font-mono uppercase font-semibold text-ink-400 mb-1">STRENGTHS</p>
-          <p>Problem-solving • Teamwork & collaboration • Leadership • Quick learner • Communication • Research & innovation</p>
+          <p class="font-bold text-ink-400 uppercase tracking-wider mb-0.5">ACHIEVEMENTS & PARTICIPATION</p>
+          <p>Seva First Innovation Challenge 2026 &bull; College Startup Sprint &bull; 8-hour college hackathon</p>
         </div>
       </div>
 
-      <div class="pt-4 border-t border-divider flex items-center justify-between">
-        <span class="text-xs text-ink-400">Print or Save as PDF</span>
-        <div class="flex gap-2">
-          <button onclick="window.print()" class="px-3 py-1.5 text-xs font-medium rounded bg-zinc-900 text-white hover:bg-zinc-800 transition-colors">
-            Print / PDF
+      <div class="pt-4 border-t border-line flex items-center justify-between">
+        <span class="text-xs text-ink-500">Recruiter Copy</span>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-ink-950 text-white hover:bg-ink-800 transition-colors">
+            Print / Save as PDF
           </button>
-          <button onclick="closeResumeModal()" class="px-3 py-1.5 text-xs font-medium rounded border border-divider hover:bg-zinc-100 transition-colors">
+          <button onclick="closeResumeModal()" class="px-4 py-2 rounded-lg text-xs font-semibold border border-line hover:bg-paper transition-colors text-ink-700">
             Close
           </button>
         </div>
